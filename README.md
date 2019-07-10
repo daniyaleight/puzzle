@@ -13,6 +13,7 @@ The aim is to find all solutions to this puzzle.
 This program solves the problem using [Recursive function](https://en.wikipedia.org/wiki/Recursive_function "Recursive function") and [Flood fill algorithm](https://en.wikipedia.org/wiki/Flood_fill "Flood fill algorithm").
 
 #Screenshot
+
 ![Screenshot](https://github.com/daniyaleight/puzzle/blob/master/Screenshot.png?raw=true "Screenshot")
 
 #Result
