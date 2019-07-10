@@ -44,7 +44,7 @@ int main(int argc, char const *argv[])
 
     Findsolution(0, 0, 0);
 
-    cout << answerCount;
+    cout << "This problem has " << answerCount << "different solutions.";
 
     return 0;
 }
@@ -356,7 +356,6 @@ bool BoardhasAppropriateFragment()
     return hasFragment;
 }
 
-
 bool CanPush(int shapeNo, int row, int col)
 {
     int r, c;
@@ -381,7 +380,6 @@ bool CanPush(int shapeNo, int row, int col)
     return true;
 }
 
-
 void PushShape(int shapeNo, int row, int col)
 {
     int r, c;
@@ -395,7 +393,6 @@ void PushShape(int shapeNo, int row, int col)
             if (shapes[shapeNo][r][c] > 0)
                 board[row + r][col + c - bias] = shapes[shapeNo][r][c];
 }
-
 
 void PopShape(int shapeNo, int row, int col)
 {
@@ -411,11 +408,8 @@ void PopShape(int shapeNo, int row, int col)
                 board[row + r][col + c - bias] = 0;
 }
 
-
 void Findsolution(int shapeCounter, int row, int col)
 {
-    int shapeNo, rotate;
-
     if (shapeCounter == 12)
     {
         PrintSolution();
@@ -427,7 +421,9 @@ void Findsolution(int shapeCounter, int row, int col)
     }
 
     if (BoardhasAppropriateFragment())
+    {
         return;
+    }
 
     while (board[row][col] != 0)
     {
@@ -442,12 +438,12 @@ void Findsolution(int shapeCounter, int row, int col)
         }
     }
 
-    for (shapeNo = 0; shapeNo < 12; shapeNo++)
+    for (int shapeNo = 0; shapeNo < 12; shapeNo++)
     {
         if (!usedShapes[shapeNo])
         {
             usedShapes[shapeNo] = true;
-            for (rotate = 0; rotate < shapeRotationCount[shapeNo]; rotate++)
+            for (int rotateNo = 0; rotateNo < shapeRotationCount[shapeNo]; rotateNo++)
             {
                 RotateShape(shapeNo);
                 if (CanPush(shapeNo, row, col))
